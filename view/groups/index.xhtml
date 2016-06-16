@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="twelvecol last">
+      <div class="content">
+        <div class="listing">
+        <table>
+          <thead>
+            <th>Group</th>
+            <th>Statistics</th>
+          <thead>
+          <tbody>
+          <tr>
+            <td>
+              #{@group.name}
+            </td>
+            <td>
+              #{StatisticsController.a("Channels",@group.id)}
+            </td>
+            <td>
+              #{StatisticsController.a("Connections",:connections,@group.id)}
+            </td>
+          </tr>
+        <?r @my_activate_groups.each do |group| ?>
+          <?r if group[:level]==1 ?>
+           <tr>
+            <td>
+              #{group[:name]} 
+            </td>
+            <td>
+              #{StatisticsController.a("Channels",group[:id])}
+            </td>
+            <td>
+              #{StatisticsController.a("Connections",:connections,group[:id])}
+            </td>
+           </tr>
+          <?r end ?>
+        <?r end ?>
+        </tbody>
+      </table>
+      </div>
+      </div>
+   </div>
+  </div>
+</div> 
+
+

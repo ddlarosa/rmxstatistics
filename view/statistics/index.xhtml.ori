@@ -1,0 +1,133 @@
+
+<?r 
+@num_height=96
+aux=@statistics.channel_in_device_playing_generic
+channels_statistics=@statistics.get_channels_statistics_general(aux) 
+if ((@statistics.channel_in_device_playing.count) > 2)
+  @num_height=(@statistics.channel_in_device_playing.count)*32 
+end
+channels_statistics_catalog=@statistics.get_channels_statistics_catalog 
+channels_statistics_personalized=@statistics.get_channels_statistics_personalized
+channels_statistics_soundreef=@statistics.get_channels_statistics_soundreef
+?>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart', 'bar']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          <?r channels_statistics.each do |channel,num| ?>
+            ['#{channel.to_s}',#{num}],
+          <?r end ?>
+        ]);
+
+        var options = {
+          title: 'Channels Playing in devices'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
+  google.charts.setOnLoadCallback(drawChart2);  
+  function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          <?r channels_statistics_catalog.each do |channel,num| ?>
+            ['#{channel.to_s}',#{num}],
+          <?r end ?>
+        ]);
+
+        var options = {
+          title: 'Statistics Catalog Channels'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
+
+  google.charts.setOnLoadCallback(drawChart3);
+
+  function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          <?r channels_statistics_personalized.each do |channel,num| ?>
+            ['#{channel.to_s}',#{num}],
+          <?r end ?>
+        ]);
+
+        var options = {
+          title: 'Statistics Personalized Channels'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+        chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
+
+  google.charts.setOnLoadCallback(drawChart4);
+
+  function drawChart4() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          <?r channels_statistics_soundreef.each do |channel,num| ?>
+            ['#{channel.to_s}',#{num}],
+          <?r end ?>
+        ]);
+
+        var options = {
+          title: 'Statistics SoundReef Channels'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+
+        chart.draw(data, options);
+      }
+</script>
+<div class="container">
+  <div class="row">
+    <div class="twelvecol">
+    <table>
+      <thead>
+        <th></th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="content">
+              <div id="piechart" style="width: 500px; height: 350px; style="display: inline"></div>
+            </div>
+          </td>
+          <td>
+            <div class="content">
+              <div id="piechart2" style="width: 500px; height: 350px; style="display: inline"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="content">
+              <div id="piechart3" style="width: 500px; height: 350px; style="display: inline"></div>
+            </div>
+          </td>
+          <td>
+          <div class="content">
+              <div id="piechart4" style="width: 500px; height: 350px; style="display: inline"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      </div>
+    </div>
+  </div>
+</div>

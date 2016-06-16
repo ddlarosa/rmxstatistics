@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <title>RMXSTATISTICS</title>
+
+    #{css('reset')}
+    <!-- 1140px Grid styles for IE -->
+    <!--[if lte IE 9]>#{css('1140.ie')}<![endif]-->
+    #{css('1140')}
+    #{css('layout')}
+    #{css('text')}
+    #{css('listing')}
+    #{css('theme/jquery-ui')}
+    #{js('css3-mediaqueries')}
+    #{js('jquery')}
+    #{js('jquery-ui')}
+  </head>
+  <body>
+    <div class="container" id="header">
+      <div class="row">
+        <div class="eightcol">
+          <h1>RMXSTATISTICS</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="twelvecol">
+          <div id="menu">
+            <nav>
+              <ul>
+                <li>#{GroupsController.a("RMX", :index)}</li>
+                <li>#{GroupsController.a("RMS", :index)}</li>
+                <li>#{StatisticsController.a("Webstreaming", :streaming)}</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="twelvecol">
+          <div>
+            <ul class="icons">
+              <li class="ui-state-default ui-corner-all">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+#{@content}
+    <div class="container">
+      <div class="row">
+        <div class="twelvecol">
+          <div id="footer">
+            <footer>
+              &nbsp;&middot;&nbsp;
+              <a style="text-decoration: none" href="http://www.musicam.es">MUSICAM</a>
+              &nbsp;&middot;&nbsp;
+              <a style="text-decoration: none" href="http://www.orbital-aerospace.com">Orbital Aerospace</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

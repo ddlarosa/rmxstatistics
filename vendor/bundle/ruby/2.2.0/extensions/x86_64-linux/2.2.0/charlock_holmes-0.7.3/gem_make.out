@@ -1,0 +1,41 @@
+/usr/bin/ruby2.2 -r ./siteconf20160616-10391-1jd0lkz.rb extconf.rb
+checking for main() in -licui18n... yes
+checking for main() in -licui18n... yes
+checking for unicode/ucnv.h... yes
+checking for main() in -lz... yes
+checking for main() in -licuuc... yes
+checking for main() in -licudata... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling ext.c
+In file included from ext.c:1:0:
+common.h:14:14: warning: ‘charlock_new_enc_str’ defined but not used [-Wunused-function]
+ static VALUE charlock_new_enc_str(const char *str, size_t len, void *encoding)
+              ^
+common.h:23:14: warning: ‘charlock_new_str’ defined but not used [-Wunused-function]
+ static VALUE charlock_new_str(const char *str, size_t len)
+              ^
+common.h:32:14: warning: ‘charlock_new_str2’ defined but not used [-Wunused-function]
+ static VALUE charlock_new_str2(const char *str)
+              ^
+compiling encoding_detector.c
+In file included from encoding_detector.c:2:0:
+common.h:14:14: warning: ‘charlock_new_enc_str’ defined but not used [-Wunused-function]
+ static VALUE charlock_new_enc_str(const char *str, size_t len, void *encoding)
+              ^
+compiling converter.c
+In file included from converter.c:2:0:
+common.h:23:14: warning: ‘charlock_new_str’ defined but not used [-Wunused-function]
+ static VALUE charlock_new_str(const char *str, size_t len)
+              ^
+common.h:32:14: warning: ‘charlock_new_str2’ defined but not used [-Wunused-function]
+ static VALUE charlock_new_str2(const char *str)
+              ^
+compiling transliterator.cpp
+linking shared-object charlock_holmes/charlock_holmes.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 charlock_holmes.so ./.gem.20160616-10391-1rh24u2/charlock_holmes

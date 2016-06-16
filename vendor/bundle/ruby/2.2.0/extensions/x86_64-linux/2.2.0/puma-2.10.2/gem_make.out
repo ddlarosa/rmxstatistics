@@ -1,0 +1,20 @@
+/usr/bin/ruby2.2 -r ./siteconf20160616-10391-19xjzo7.rb extconf.rb
+checking for SSL_CTX_new() in -lssl... yes
+checking for BIO_read() in -lcrypto... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling mini_ssl.c
+In file included from mini_ssl.c:3:0:
+/usr/include/ruby-2.2.0/ruby/backward/rubyio.h:2:2: warning: #warning use "ruby/io.h" instead of "rubyio.h" [-Wcpp]
+ #warning use "ruby/io.h" instead of "rubyio.h"
+  ^
+compiling io_buffer.c
+compiling puma_http11.c
+compiling http11_parser.c
+linking shared-object puma/puma_http11.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20160616-10391-1fe911o/puma

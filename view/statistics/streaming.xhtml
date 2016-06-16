@@ -1,0 +1,84 @@
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart', 'bar']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          <?r @streaming_channels.each do |channel,cont| ?>
+            ['#{channel.to_s}',#{cont}],
+          <?r end ?>
+        ]);
+
+        var options = {
+          title: 'States Devices'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+</script>
+ <script type="text/javascript">
+   
+    google.charts.setOnLoadCallback(drawChart2);
+    function drawChart2() {
+      var data = google.visualization.arrayToDataTable([
+        ['Days', 'Users'],
+        <?r @streaming_user_per_day.each do |day,users| ?>
+        ['#{day}',#{users.values.count}],
+        <?r end ?>
+      ]);
+      var options = {
+        title: "Number of users for days",
+        width: 800,
+        height: 200,
+        bar: {groupWidth: '95%'},
+        legend: { position: 'none' },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_colors'));
+      chart.draw(data, options);
+  }
+  </script>
+<div class="container">
+<div class="row">
+  <div class="twelvecol">
+    <div class="content">
+      <h2> * Webstreaming Channels Streaming from #{@my_date} to #{Date.today}</h2><br/>
+      <form method="post" action="#{StatisticsController.r(:streaming)}">
+      <label><b>DATE</b></label>
+      <select name="year">
+        <?r ((Date.today.year-5)..(Date.today).year).reverse_each do |v| ?>
+         <option value="#{v}">#{v}</option>
+        <?r end ?>
+      <select> 
+      <select name="month">
+        <?r (1..12).each do |v| ?>
+          <?r if v == Date.today.month ?>
+            <option selected="selected" value="#{v}">#{Date::MONTHNAMES[Date.today.month]}</option>
+          <?r else ?>
+            <option value="#{v}">#{Date::MONTHNAMES[v]}</option>
+          <?r end ?>
+        <?r end ?>
+      </select>
+      <select name="day">
+        <?r (1..31).each do |v| ?>
+          <?r if Date.today.day == v ?>
+            <option selected="selected" value="#{v}">#{v}</option>
+          <?r else ?>
+            <option value="#{v}">#{v}</option>
+          <?r end ?>
+        <?r end ?>
+      </select>
+      <input type="submit" name="Accept" value="Accept"/> 
+    </form>
+    <br/><br/>
+    <div style="text-align: center;"><h3>Webstreaming Statistics</h3></div><br/>
+    <div id="columnchart_colors" style="width: 900px; height: 300px;"></div>
+    <div id="piechart" style="width: 800px; height: 200px"; style="display: inline"></div>
+    </div>
+    </div>
+  </div>
+</div>

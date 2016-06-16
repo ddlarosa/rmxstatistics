@@ -1,0 +1,95 @@
+=== 0.7.2 / 2013-11-20
+
+* set licence to GPL
+
+=== 0.7.1 / 2013-10-27
+
+* fixed UTF-8 bug
+
+=== 0.7 / 2013-10-27
+
+* opus codec added
+* OggInfo#picture read accessor added
+
+=== 0.6.13 / 2013-10-25
+
+* added OggInfo#picture=(filepath) method to add picture to OggFile with METADATA_BLOCK_PICTURE tag
+
+=== 0.6.12 / 2013-09-05
+
+* avoid potential race condition on temp file creation
+* remove warnings on unused variables
+
+=== 0.6.11 / 2012-07-16
+
+* more robust compute_length() method (works on broken OGGs)
+
+=== 0.6.10 / 2012-05-18
+
+* doesn't show binary dump in raise messages anymore
+
+=== 0.6.9 / 2012-05-18
+
+* more robust Ogg pages parsing. (doesn't fail on truncated Ogg files)
+
+=== 0.6.8 / 2012-02-28
+
+* removed :encoding parameter on OggInfo#new
+* utf8 strings are correctly written now in ruby > 1.9
+
+=== 0.6.7 / 2012-02-27
+
+* fixes for ruby 1.9 (again)
+
+=== 0.6.6 / 2011-12-23
+
+* fixes for ruby 1.9 (thanks to gwolf)
+
+=== 0.6.5 / 2011-04-07
+
+* internal reorganization, leading to more robust and faster library 
+
+=== 0.6 / 2011-03-01
+
+* pure ruby tag writing (thanks to Grant Gardner)
+
+=== 0.5 / 2011-01-13
+
+* speex support (thanks to Grant Gardner)
+
+=== 0.4.2 / 2010-03-13
+
+* bugfix on frame parsing
+
+=== 0.4.1 / 2010-03-13
+
+* bugfix on file parsing
+
+=== 0.4 / 2009-12-04
+
+* new ogg frame reading implementation 
+* better tag reading (thanks to Sven) 
+* now assume utf-8 by default to decode tags
+
+=== 0.3.2 / 2009-06-22
+
+* added setup.rb for tarball distribution
+* added license on top of lib/ogginfo.rb
+
+=== 0.3.1 / 2008-03-16
+
+* bug fixed #18852 "OggInfo#close(): close @ic only if not nil"
+* bug fixed on encoding handling
+
+=== 0.3 / 2008-03-15
+
+* write support through "vorbiscomment" binary
+* correct encoding handling
+
+=== 0.2 / 2005-07-11
+
+* tag["key"] is accessible with tag.key
+
+=== 0.1 / 2004-06-20
+
+* first public version
