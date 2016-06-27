@@ -131,7 +131,6 @@ module RMXCHANNELS
       805=> "CUSTO DEMO", 
       1857=>"ORANGE POR LAS TARDES", 
       1856=>"ORANGE POR LAS MAÑANAS"                             
-    },
-
+    }
  }    
 end

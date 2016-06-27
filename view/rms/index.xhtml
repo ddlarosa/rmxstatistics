@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="twelvecol last">
+      <div class="content">
+        <div class="listing">
+          <table>
+            <thead>
+              <th>Resellers</th>
+              <th>Statistics</th>
+            <thead>
+            <tbody>
+              <tr>
+                <td>All</td>
+                <td>#{RmsController.a("Statistics",:connections_all)}</td>
+              </tr>
+              <?r @resellers.each do |reseller| ?>
+              <tr>
+                <td>
+                  #{reseller[:reseller_name]}
+                </td>
+                <td>
+                  #{RmsController.a("Statistics",:connections,reseller[:reseller_id])}
+                </td>
+              </tr>
+              <?r end ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

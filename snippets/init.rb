@@ -1,3 +1,5 @@
 require __DIR__('statistics')
+require __DIR__('statistics_rms')
 require __DIR__('groups_functions')
+require __DIR__('rms_functions')
 require __DIR__('RMXCHANNELS')

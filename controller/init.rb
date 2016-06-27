@@ -18,3 +18,4 @@ end
 require __DIR__('main')
 require __DIR__('statistics_controller')
 require __DIR__('groups_controller')
+require __DIR__('rms_controller')

@@ -11,6 +11,8 @@ require_relative '/home/rmx/rmx/rmxdb/lib/db'
 require_relative '/home/rmx/rmx/rmxdb/lib/jobs'
 require_relative './config/base'
 require_relative './config/custom' if File.exists? __DIR__('config/custom.rb')
+require_relative './rmsdb/init'
+
 
 # initialize controllers and models
 require_relative 'snippets/init'

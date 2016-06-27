@@ -28,6 +28,7 @@ GEM
     mono_logger (1.1.0)
     msgpack (0.5.10)
     multi_json (1.10.1)
+    mysql2 (0.4.4)
     pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -81,6 +82,7 @@ DEPENDENCIES
   bcrypt
   charlock_holmes
   locale
+  mysql2
   pry
   pry-byebug
   puma

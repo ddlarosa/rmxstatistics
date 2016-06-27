@@ -252,5 +252,4 @@ class Statistics
     end
     return devices_connections
   end
-
 end #class

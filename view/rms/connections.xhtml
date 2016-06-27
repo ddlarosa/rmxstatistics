@@ -1,0 +1,91 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart', 'bar']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Connections', 'Devices'],
+            ['Connected',#{@players[:connected]}],
+            ['Disconnected',#{@players[:disconnected]}]
+        ]);
+
+        var options = {
+          title: 'Connections Devices'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
+  google.charts.setOnLoadCallback(drawChart2);
+
+  function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Channels', 'Devices'],
+            <?r @players_logs_channel.each do |channel| ?>
+              ['#{channel[:log_channel_description]}',#{channel[:count]}],
+            <?r end ?>
+        ]);
+
+        var options = {
+          title: 'Channel Logs in Devices'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
+  google.charts.setOnLoadCallback(drawChart3);
+
+  function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['Channels', 'Devices'],
+            <?r @players_channels.each do |channel,num| ?>
+              ['#{channel}',#{num}],
+            <?r end ?>
+        ]);
+
+        var options = {
+          title: 'Channel in Devices'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+        chart.draw(data, options);
+      }
+</script>
+<div class="container">
+  <div class="row">
+    <div class="twelvecol last">
+      <div class="content">
+        <h3>RMS Statistics for #{@reseller[:reseller_name]}</h3>
+        <div>
+          <table>
+            <thead>
+              <th>Connections</th>
+              <th>Channels</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div id="piechart" style="width: 500px; height: 350px;" style="display: inline"></div>
+                </td>
+                <td>
+                  <div id="piechart3" style="width: 500px; height: 350px;" style="display: inline"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+            <p>
+            <div id="piechart2" style="width: 500px; height: 350px;" style="display: inline"></div>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

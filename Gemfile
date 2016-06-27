@@ -16,6 +16,7 @@ gem 'ruby-ogginfo'
 gem 'puma'
 gem 'ramaze', github: 'nibble/ramaze', branch: 'paginate-method-all'
 gem 'redis'
+gem 'mysql2'
 gem 'locale'
 gem 'charlock_holmes'
 
